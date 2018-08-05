@@ -5,7 +5,9 @@
 
 
 単語の分散表現を与える際には，東北大学の日本語Wikipediaエンティティベクトルを用いました．
+
 (参考)http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/
+
 -20161101.tar.bz2 (2016年11月1日版, 1.3GB, 解凍後 2.6GB)のファイル
 
 
