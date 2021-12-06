@@ -3,13 +3,9 @@ from gensim.models import KeyedVectors
 import sys
 model_dir = './tohoku_entity_vector/entity_vector/entity_vector.model.bin'
 model = KeyedVectors.load_word2vec_format(model_dir, binary=True)
-# print(model[u'ニュース'].shape)
-# print(len(model.vocab))
-
 
 # 入力された単語から近い単語をn個表示する
 def similarWords(posi, nega=[], n=10):
-    # print('posi,nega ',posi,nega)
     cnt = 1 # 表示した単語の個数カウント用
     # 学習済みモデルからcos距離が最も近い単語n個(topn個)を表示する
     result = model.most_similar(positive = posi, negative = nega, topn = n)
@@ -19,7 +15,6 @@ def similarWords(posi, nega=[], n=10):
 
 def main():
     word = sys.argv[1]
-    # word = unicode(word, 'utf-8')
     similarWords([word])
     print('model[word]\n',model[word],len(model[word]))
 

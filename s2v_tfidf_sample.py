@@ -10,20 +10,14 @@ def main():
     model_dir = './tohoku_entity_vector/entity_vector/entity_vector.model.bin'
     model = KeyedVectors.load_word2vec_format(model_dir, binary=True)
 
-    # s2v = s2v_tfidf.s2vtfidf(corpus,model)
     s2v = s2v_tfidf.s2vtfidf(model)
 
     wakachi_corpus = s2v.make_wakachi_corpus(corpus)
-    # exit()
-    # print(wakachi_corpus)
-    # exit()
     vec,X_tfidf = s2v.TFIDF(wakachi_corpus)
     corpus_vec = s2v.tfidf_sentence_vector(vec,X_tfidf)
     print('0 and 1',1 - spatial.distance.cosine(corpus_vec[0], corpus_vec[1]))
     print('0 and 2',1 - spatial.distance.cosine(corpus_vec[0], corpus_vec[2]))
     print('1 and 2',1 - spatial.distance.cosine(corpus_vec[1], corpus_vec[2]))
-    # print('0 and 3',1 - spatial.distance.cosine(corpus_vec[0], corpus_vec[3]))
-    # print('0 and 4',1 - spatial.distance.cosine(corpus_vec[0], corpus_vec[4]))
 
 
 if __name__ == '__main__':
